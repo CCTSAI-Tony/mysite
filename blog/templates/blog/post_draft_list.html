@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+{% block content %}
+{% for post in posts %}
+{# context object default for DraftListView is posts #}
+<div class="post">
+  <p class="date">Created: {{ post.created_date|date:'d-m-Y' }}</p>
+  <h1><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h1>
+  <p>{{post.text|truncatechars:200}}</p>
+  {# truncatechars:200 just for formatting after 200 characters it shows (“…”). #}
+</div>
+{% enfor %}
+{% endblock %}

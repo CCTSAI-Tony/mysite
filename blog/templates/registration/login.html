@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{# same as {%block body_block%} #}
+{% block content %}
+<div class="jumbotron">
+  <h2>Please Log-in:</h2>
+  <h3>(Must be a superuser, please check with the site admin)</h3>
+
+  {% if form.errors %}
+    <p>Username and password did not match. Please try again</p>
+  {% endif %}
+
+  <form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" class='btn btn-primary' value="Login">
+      <input type="hidden" name="next" value="{{next}}">
+
+      So if we come back to urls this log in page essentially this view log in it's going to supply
+      this {{next}} value for us which is going to allow us to kind of deal with what to do next after this person's been logged in
+  </form>
+</div>
+{% endblock %}
