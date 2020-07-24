@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
+import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'blog/templates/blog')
@@ -19,13 +19,14 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'blog/templates/blog')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
+SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#=kqyv@t%ao1x2p=f^2^5f)5xw5w+#i=)o6pu9k#uvrtdzf#39'
+# SECRET_KEY = '#=kqyv@t%ao1x2p=f^2^5f)5xw5w+#i=)o6pu9k#uvrtdzf#39'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mysite66.herokuapp.com']
 
 
 # Application definition
@@ -122,3 +123,4 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 LOGIN_REDIRECT_URL = '/'  # redirection to the home page once the person has done log in
+dhango_heroku.settings(locals())
