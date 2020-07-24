@@ -123,4 +123,4 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 LOGIN_REDIRECT_URL = '/'  # redirection to the home page once the person has done log in
-dhango_heroku.settings(locals())
+django_heroku.settings(locals())
